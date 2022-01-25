@@ -1,0 +1,38 @@
+@model MyTrailsClient.Models.UserTrail
+
+<h2>Trail Details: @Html.DisplayFor(m => m.Name)</h2>
+<hr />
+<h3>Length: @Html.DisplayFor(m => m.Length)</h3>
+<h3>Configuration: @Html.DisplayFor(m => m.Configuration)</h3>
+<h3>ElevationGain: @Html.DisplayFor(m => m.ElevationGain)</h3>
+<h3>Difficulty: @Html.DisplayFor(m => m.Difficulty)</h3>
+<h3>FamilyFriendly: @Html.DisplayFor(m => m.FamilyFriendly)</h3>
+<h3>Latitude: @Html.DisplayFor(m => m.Latitude)</h3>
+<h3>Longitude: @Html.DisplayFor(m => m.Longitude)</h3>
+<h3>Season: @Html.DisplayFor(m => m.Season)</h3>
+<h3>Status: @Html.DisplayFor(m => m.Status)</h3>
+
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>You haven't logged any visits for this trail!</p>
+}
+else
+{
+  <h4>Visits to this trail:</h4>
+  <ul>
+    @foreach(var join in Model.JoinEntities)
+    {
+      <li>@join.VisitEntry.VisitDate</li>
+      @using (Html.BeginForm("DeleteVisitEntry", "UserTrail"))
+    {
+      @Html.Hidden("joinId", @join.UserTrailVisitEntryId)
+      <input type="submit" value="Delete" />
+    }
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Add New Trail", "AddUserTrail", new { id = Model.UserTrailId })</p>
+<p>@Html.ActionLink("Edit Trail", "Edit", new { id = Model.UserTrailId })</p>
+<p>@Html.ActionLink("Delete Trail", "Delete", new { id = Model.UserTrailId})</p>
