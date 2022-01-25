@@ -22,15 +22,8 @@ namespace MyTrailsClient.Controllers
 
 		[HttpGet("/")]
 
-		// public IActionResult Index()
-    // {
-    //   var allTrails = ApiTrail.GetApiTrails();
-    //   return View(allTrails);
-    // }
 		public IActionResult Index()
 		{
-			// ViewBag.ApiTrail.GetApiTrails();
-			// var trails = ApiTrail.GetApiTrails();
 			ViewBag.ApiTrailId = new SelectList(ApiTrail.GetApiTrails(), "ApiTrailId", "Name");
 			return View();
 		}
