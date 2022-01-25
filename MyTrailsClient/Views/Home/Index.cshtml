@@ -1,8 +1,39 @@
 ﻿@{
   ViewData["Title"] = "Home Page";
 }
+@* @model MyTrailsClient.Models *@
 
-<div class="text-center">
-	<h1 class="display-4">Welcome</h1>
-	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>My Trails</h2>
+
+<p>Your Trail Journal</p>
+
+<p>Create an account or log in to access your trail journals</p>
+<p>@Html.ActionLink("Create an account", "Index", "Account")</p>
+<p>@Html.ActionLink("Log in", "Login", "Account")</p>
+
+<p>Ready to just get out there? Search for a trail and be on your way!</p>
+
+<h2>60 Hikes Within 60 Miles of PDX</h2>
+<p><em>Based on the book by Paul Gerard</em></p>
+
+<p>Search Trails:</p>
+@using (Html.BeginForm())
+{
+	@Html.Label("Select trail by name")
+	@Html.DropDownList("ApiTrailId")
+
+
+	<input type="submit" value="See Trails" class="btn btn-default" />
+	
+}
+
+@* <ol>
+@foreach (ApiTrail apiTrail in Model)
+{
+  <ul>
+    <li>Name: @apiTrail.Name</li>
+  </ul>
+  <br>
+}
+</ol> *@
+

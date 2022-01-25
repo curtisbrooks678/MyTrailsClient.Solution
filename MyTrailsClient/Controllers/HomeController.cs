@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyTrailsClient.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MyTrailsClient.Controllers
 {
@@ -18,11 +20,22 @@ namespace MyTrailsClient.Controllers
 			_logger = logger;
 		}
 
+		[HttpGet("/")]
+
+		// public IActionResult Index()
+    // {
+    //   var allTrails = ApiTrail.GetApiTrails();
+    //   return View(allTrails);
+    // }
 		public IActionResult Index()
 		{
+			// ViewBag.ApiTrail.GetApiTrails();
+			// var trails = ApiTrail.GetApiTrails();
+			ViewBag.ApiTrailId = new SelectList(ApiTrail.GetApiTrails(), "ApiTrailId", "Name");
 			return View();
 		}
 
+		[HttpPost]
 		public IActionResult Details(int id)
 		{
 			var apiTrail = ApiTrail.GetDetails(id);
