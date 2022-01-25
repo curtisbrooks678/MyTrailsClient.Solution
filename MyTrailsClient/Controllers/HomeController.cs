@@ -23,6 +23,12 @@ namespace MyTrailsClient.Controllers
 			return View();
 		}
 
+		public IActionResult Details(int id)
+		{
+			var apiTrail = ApiTrail.GetDetails(id);
+			return View(apiTrail);
+		}
+
 		public IActionResult Privacy()
 		{
 			return View();
@@ -33,5 +39,7 @@ namespace MyTrailsClient.Controllers
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 		}
+
+		
 	}
 }
