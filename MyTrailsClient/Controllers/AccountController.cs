@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using MyTrailsClient.Models;
-using System.Threading.Tasks;
-using MyTrailsClient.ViewModels;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
+using MyTrailsClient.ViewModels;
+using MyTrailsClient.Models;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace MyTrailsClient.Controllers
 {
@@ -45,7 +45,7 @@ namespace MyTrailsClient.Controllers
     [HttpPost]
     public async Task<ActionResult> Register (RegisterViewModel model)
     {
-      var user = new ApplicationUser { Email = model.Email };  
+      var user = new ApplicationUser { UserName = model.Email };  
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
 
       if (result.Succeeded)
