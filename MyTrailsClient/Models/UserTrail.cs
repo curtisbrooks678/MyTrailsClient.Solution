@@ -21,10 +21,7 @@ namespace MyTrailsClient.Models
     public double Longitude { get; set; }
     public string Season { get; set; }
     public string Status { get; set; }
-
     public virtual ApplicationUser User { get; set; }
-    
     public virtual ICollection<UserTrailVisitEntry> JoinEntities { get; set; }
-  
   }
 }
