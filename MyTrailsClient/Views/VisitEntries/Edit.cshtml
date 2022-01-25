@@ -1,0 +1,32 @@
+@model MyTrailsClient.Models.VisitEntry
+
+<h2>Edit your Visit Entry</h2>
+<hr />
+visit date, rating, Activity, bounty, lat, notes
+<h3>Visit: @Html.DisplayFor(m => m.VisitDate)</h3>
+
+@using(Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.VisitEntryId)
+
+  @Html.LabelFor(model => model.VisitDate, "Visit Date:")
+  @Html.TextBoxFor(model => model.VisitDate, "{0:yyyy-MM-dd}", new {@type = "date"})
+  
+  @Html.LabelFor(model => model.Rating)
+  @Html.TextBoxFor(model => model.Rating)
+
+  @Html.LabelFor(model => model.ActivityLevel)
+  @Html.TextBoxFor(model => model.ActivityLevel, "Trail Activity Level(eg Busy):")
+
+  @Html.LabelFor(model => model.Bounty)
+  @Html.TextBoxFor(model => model.Bounty)
+
+  @Html.LabelFor(model => model.Latitude)
+  @Html.TextBoxFor(model => model.Latitude)
+  
+  @Html.LabelFor(model => model.Longitude)
+  @Html.TextBoxFor(model => model.Longitude)
+
+  @Html.LabelFor(model => model.Notes)
+  @Html.TextBoxFor(model => model.Notes)
+}

@@ -1,0 +1,10 @@
+
+<h2>Delete Flavor</h2>
+<hr />
+<p>Are you sure you want to delete @Model.VisitDate?</p>
+
+@using(Html.BeginForm())
+{
+  <input type="submit" value="Delete Visit Entry" class="btn btn-dark"/>
+}
+<p>@Html.ActionLink("Cancel", "Details", new { id = Model.VisitEntryId })</p>
