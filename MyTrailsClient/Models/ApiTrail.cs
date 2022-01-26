@@ -7,7 +7,7 @@ namespace MyTrailsClient.Models
 {
   public class ApiTrail
   {
-    public int ApiTrailId { get; set; }
+    public int TrailId { get; set; }
     public string Name { get; set; }
     public double Length { get; set; }
     public string Configuration { get; set; }

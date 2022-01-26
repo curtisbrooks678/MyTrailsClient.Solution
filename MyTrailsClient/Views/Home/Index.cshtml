@@ -1,8 +1,7 @@
 ﻿@{
   ViewData["Title"] = "Home Page";
 }
-@* @model MyTrailsClient.Models *@
-
+@* @model MyTrailsClient.Models.ApiTrail*@
 <h2>My Trails</h2>
 
 <p>Your Trail Journal</p>
@@ -17,13 +16,15 @@
 <p><em>Based on the book by Paul Gerard</em></p>
 
 <p>Search Trails:</p>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Details", "Home"))
 {
+	@Html.HiddenFor("id", @ViewBag.TrailId) 
 	@Html.Label("Select trail by name")
-	@Html.DropDownList("ApiTrailId")
+	@Html.DropDownList("TrailId")
 
-	<input type="submit" value="See Trails" class="btn btn-default" />
+	<input type="submit" value="See Trail"  class="btn btn-default" />
 
 }
+<br>
 
-
+<p>@Html.ActionLink("Return to Home", "Index")</p>

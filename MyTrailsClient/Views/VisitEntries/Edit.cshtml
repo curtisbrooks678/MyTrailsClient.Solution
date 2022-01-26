@@ -13,20 +13,20 @@ visit date, rating, Activity, bounty, lat, notes
   @Html.TextBoxFor(model => model.VisitDate, "{0:yyyy-MM-dd}", new {@type = "date"})
   
   @Html.LabelFor(model => model.Rating)
-  @Html.TextBoxFor(model => model.Rating)
+  @Html.TextBoxFor(model => model.Rating, new { @type="number", @min="0", @max="5", @class="form-control"})
 
   @Html.LabelFor(model => model.ActivityLevel)
-  @Html.TextBoxFor(model => model.ActivityLevel, "Trail Activity Level(eg Busy):")
+  @Html.TextBoxFor(model => model.ActivityLevel, "Trail Activity Level(eg Busy):", new { @class="form-control"})
 
   @Html.LabelFor(model => model.Bounty)
-  @Html.TextBoxFor(model => model.Bounty)
+  @Html.TextBoxFor(model => model.Bounty, new { @class="form-control"})
 
   @Html.LabelFor(model => model.Latitude)
-  @Html.TextBoxFor(model => model.Latitude)
+  @Html.TextBoxFor(model => model.Latitude, new { @type="number", @class="form-control"})
   
   @Html.LabelFor(model => model.Longitude)
-  @Html.TextBoxFor(model => model.Longitude)
+  @Html.TextBoxFor(model => model.Longitude, new { @type="number", @class="form-control"})
 
   @Html.LabelFor(model => model.Notes)
-  @Html.TextBoxFor(model => model.Notes)
+  @Html.TextBoxFor(model => model.Notes, new { @class="form-control"})
 }

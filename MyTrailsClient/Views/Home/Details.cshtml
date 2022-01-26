@@ -1,0 +1,20 @@
+@model MyTrailsClient.Models.ApiTrail;
+
+<h1>Trail Info:</h1>
+<ul>
+  <li>ID: @Model.TrailId</li>
+  <li>Name: @Model.Name</li>
+  <li>Length: @Model.Length miles</li>
+  <li>Configuration: @Model.Configuration</li>
+  <li>Elevation Gain: @Model.ElevationGain ft.</li>
+  <li>Difficulty Level: @Model.Difficulty</li>
+  <li>Family Friendly: @Model.FamilyFriendly</li>
+  <li>Latitude: @Model.Latitude</li>
+  <li>Longitude: @Model.Longitude</li>
+  <li>Season: @Model.Season</li>
+</ul>
+<br>
+
+<br>
+
+<p>@Html.ActionLink("Return to Home", "Index")</p>
