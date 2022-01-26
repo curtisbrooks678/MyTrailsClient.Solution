@@ -24,6 +24,7 @@
 {
 	@Html.HiddenFor(m => m.TrailId)
 	@Html.Label("Select trail by name")
+	@Html.DropDownList("TrailId")
 	@* @Html.DropDownListFor(m => m.Name, new SelectList(Enum.GetValues(typeof(ApiTrail))), "Select Trail") *@
 
 	<button type="submit" class="btn btn-primary">See Trail</button>
