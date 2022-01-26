@@ -4,29 +4,36 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(m => m.VisitDate)
-  @Html.TextBoxFor(m => m.VisitDate, "{0:yyyy-MM-dd}", new {@type = "date"})
+  @Html.LabelFor(m => m.VisitDate,"Visit Date", new { @class="form-label"})
+  <br>
+  @Html.TextBoxFor(m => m.VisitDate, new { @class="form-control col-6", @type = "date", @format="{0:yyyy-MM-dd}"})
 
-  @Html.LabelFor(m => m.Rating)
-  @Html.TextBoxFor(m => m.Rating, new { @type="number", @min="0", @max="5", @class="form-control"})
+  @Html.LabelFor(m => m.Rating, new { @class="form-label"})
+  <br>
+  @Html.TextBoxFor(m => m.Rating, new { @type="number", @min="0", @max="5", @class="form-control col-6"})
 
-  @Html.LabelFor(m => m.ActivityLevel)
-  @Html.TextBoxFor(m => m.ActivityLevel, new { @class="form-control" })
+  @Html.LabelFor(m => m.ActivityLevel, "Activity Level", new { @class="form-label"})
+  <br>
+  @Html.TextBoxFor(m => m.ActivityLevel, new { @class="form-control col-6" })
 
-  @Html.LabelFor(m => m.Bounty)
-  @Html.TextBoxFor(m => m.Bounty, new { @class="form-control" })
+  @Html.LabelFor(m => m.Bounty, new { @class="form-label"})
+  <br>
+  @Html.TextBoxFor(m => m.Bounty, new { @class="form-control col-6" })
 
-  @Html.LabelFor(m => m.Latitude)
-  @Html.TextBoxFor(m => m.Latitude, new { @type="number", @class="form-control" })
+  @Html.LabelFor(m => m.Latitude, new { @class="form-label"})
+  <br>
+  @Html.TextBoxFor(m => m.Latitude, new { @type="float", @class="form-control col-6" })
 
-  @Html.LabelFor(m => m.Longitude)
-  @Html.TextBoxFor(m => m.Longitude, new { @type="number", @class="form-control" })
+  @Html.LabelFor(m => m.Longitude, new { @class="form-label"})
+  <br>
+  @Html.TextBoxFor(m => m.Longitude, new { @type="float", @class="form-control col-6" })
 
-  @Html.LabelFor(m => m.Notes)
-  @Html.TextBoxFor(m => m.Notes, new { @class="form-control" })
+  @Html.LabelFor(m => m.Notes, new { @class="form-label"})
+  <br>
+  @Html.TextAreaFor(m => m.Notes, new { @class="form-control col-6" })
   
-  @Html.Label("Select User Trail")
-  @Html.DropDownList("UserTrailId")
+  <div class="form-label">@Html.Label("Select User Trail")</div>
+  @Html.DropDownList("UserTrailId", (IEnumerable<SelectListItem>)ViewBag.id, new { @class="form-control col-6" })
 
   <input type="submit" value="Add new Visit Entry" class="btn btn-default" />
 }
