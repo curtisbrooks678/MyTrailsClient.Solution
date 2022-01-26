@@ -2,7 +2,7 @@
 
 <h2>Edit your Visit Entry</h2>
 <hr />
-<h3>Visit: @Html.DisplayFor(m => m.VisitDate)</h3>
+<h3>Visit: @Model.VisitDate.ToShortDateString()</h3>
 
 @using(Html.BeginForm())
 {
