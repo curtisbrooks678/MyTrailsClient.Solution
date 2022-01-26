@@ -8,36 +8,43 @@
 {
   @Html.HiddenFor(m => m.UserTrailId)
 
-  @Html.LabelFor(m => m.Name)
-  @Html.EditorFor(m => m.Name, new { @class="form-control" })
-
-  @Html.LabelFor(m => m.Length)
-  @Html.EditorFor(m => m.Length, new { @class="form-control", @type = "number" })
-
-  @Html.LabelFor(m => m.Configuration)
-  @Html.EditorFor(m => m.Configuration, new { @class="form-control" })
-
-  @Html.LabelFor(m => m.ElevationGain)
-  @Html.EditorFor(m => m.ElevationGain, new { @class="form-control", @type = "number"})
+  @Html.LabelFor(m => m.Name, new { @class="form-label"})
+  @Html.TextBoxFor(m => m.Name, new { @class="form-control col-6", required = "required" })<br>
   
-  @Html.LabelFor(m => m.Difficulty)
-  @Html.EditorFor(m => m.Difficulty, new { @class="form-control" })
+  @Html.LabelFor(m => m.Length)
+  @Html.TextBoxFor(m => m.Length, new { @class="form-control col-6", type = "double" });<br>
 
-  <h3>Family Friendly</h3>
-  <span>Yes</span>@Html.RadioButtonFor(m => m.FamilyFriendly, "Yes")
-  <span>No</span>@Html.RadioButtonFor(m => m.FamilyFriendly, "No")
+  @Html.LabelFor(m => m.Configuration, "Configuration", new { @class="form-label" })<br>
+  @Html.RadioButtonFor(m => m.Configuration, "Loop")<span>Loop</span><br>
+  @Html.RadioButtonFor(m => m.Configuration, "Out-and-back")<span>Out & Back</span><br>
+  @Html.RadioButtonFor(m => m.Configuration, "Lollipop")<span>Lollipop</span><br>
+  
+  @Html.LabelFor(m => m.ElevationGain, "Elevation Gain", new { @class="form-label"})
+  @Html.TextBoxFor(m => m.ElevationGain, new { @class="form-control col-6", @type = "number"})<br>
 
-  @Html.LabelFor(m => m.Latitude)
-  @Html.EditorFor(m => m.Latitude, new { @class="form-control", @type = "number" })
+  @Html.LabelFor(m => m.Difficulty, "Difficulty", new { @class="form-label" })<br>
+  @Html.RadioButtonFor(m => m.Difficulty, "Easy")<span>Easy</span><br>
+  @Html.RadioButtonFor(m => m.Difficulty, "Moderate")<span>Moderate</span><br>
+  @Html.RadioButtonFor(m => m.Difficulty, "Difficult")<span>Difficult</span><br>
 
-  @Html.LabelFor(m => m.Longitude)
-  @Html.EditorFor(m => m.Longitude, new { @class="form-control", @type = "number" });
+  @Html.LabelFor(m => m.FamilyFriendly, "Family Friendly", new { @class="form-label" })<br>
+  @Html.RadioButtonFor(m => m.FamilyFriendly, "Yes")<span>Yes</span><br>
+  @Html.RadioButtonFor(m => m.FamilyFriendly, "No")<span>No</span><br>
 
-  @Html.LabelFor(m => m.Season)
-  @Html.EditorFor(m => m.Season, new { @class="form-control" })
+  @Html.LabelFor(m => m.Latitude, new { @class="form-label" })
+  @Html.TextBoxFor(m => m.Latitude, new { @class="form-control col-6", @type = "double" })<br>
 
-  @Html.LabelFor(m => m.Status)
-  @Html.EditorFor(m => m.Status, new { @class="form-control" })
+  @Html.LabelFor(m => m.Longitude, new { @class="form-label"})
+  @Html.TextBoxFor(m => m.Longitude, new { @class="form-control col-6", @type = "double" })<br>
+
+  @Html.LabelFor(m => m.Season, "Seaonal Accessibility", new { @class="form-label" })<br>
+  @Html.RadioButtonFor(m => m.Season, "All")<span>All</span><br>
+  @Html.RadioButtonFor(m => m.Season, "Spring - Fall")<span>Spring - Fall</span><br>
+  @Html.RadioButtonFor(m => m.Season, "Summer")<span>Summer</span><br>
+
+  @Html.LabelFor(m => m.Status, new { @class = "form-label" })<br>
+  @Html.RadioButtonFor(m => m.Status, "Open")<span>Open</span><br>
+  @Html.RadioButtonFor(m => m.Status, "Closed")<span>Closed</span><br>
   
   <input type="submit" value="Save">
 }
