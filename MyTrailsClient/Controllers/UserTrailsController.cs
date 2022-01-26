@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System.Dynamic;
 
 namespace MyTrailsClient.Controllers
 {
@@ -29,6 +30,7 @@ namespace MyTrailsClient.Controllers
       var userUserTrails = _db.UserTrails
         .Where(entry => entry.User.Id == currentUser.Id)
         .ToList();
+       ViewData["SixtyTrails"]= (ApiTrail.GetApiTrails(),"TrailId", "Name");  
       return View(userUserTrails);
     } 
 
