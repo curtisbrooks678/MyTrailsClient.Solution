@@ -1,7 +1,8 @@
 ﻿@{
   ViewData["Title"] = "Home Page";
 }
-@* @model MyTrailsClient.Models.ApiTrail*@
+@using MyTrailsClient.Models;
+@model MyTrailsClient.Models.ApiTrail
 <h2>My Trails</h2>
 
 <p>Your Trail Journal</p>
@@ -9,6 +10,9 @@
 <p>Create an account or log in to access your trail journals</p>
 <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
 <p>@Html.ActionLink("Log in", "Login", "Account")</p>
+<p>@Html.ActionLink("Log Out", "LogOut", "Account")</p>
+<p>@Html.ActionLink("UserTrails", "Index", "UserTrails")</p>
+<p>@Html.ActionLink("VisitEntries", "Index", "VisitEntries")</p>
 
 <p>Ready to just get out there? Search for a trail and be on your way!</p>
 
@@ -16,14 +20,13 @@
 <p><em>Based on the book by Paul Gerard</em></p>
 
 <p>Search Trails:</p>
-@using (Html.BeginForm("Details", "Home"))
+@using (Html.BeginForm("Details", "Home", new { id = @ViewBag.id}, FormMethod.Post))
 {
-	@Html.HiddenFor("id", @ViewBag.TrailId) 
+	@Html.HiddenFor(m => m.TrailId)
 	@Html.Label("Select trail by name")
-	@Html.DropDownList("TrailId")
+	@* @Html.DropDownListFor(m => m.Name, new SelectList(Enum.GetValues(typeof(ApiTrail))), "Select Trail") *@
 
-	<input type="submit" value="See Trail"  class="btn btn-default" />
-
+	<button type="submit" class="btn btn-primary">See Trail</button>
 }
 <br>
 
