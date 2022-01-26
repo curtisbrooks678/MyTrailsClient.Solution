@@ -24,19 +24,19 @@ namespace MyTrailsClient.Controllers
 
 		public IActionResult Index()
 		{
-			ViewBag.TrailId = new SelectList(ApiTrail.GetApiTrails(), "TrailId", "Name");
+			ViewBag.ApiTrailId = new SelectList(ApiTrail.GetApiTrails(), "ApiTrailId", "Name");
 			return View();
 		}
 
 		public IActionResult Details(int id)
 		{
-			// ViewBag.TrailId = new SelectList(ApiTrail.GetApiTrails(), "TrailId", "Name");
+			// ViewBag.ApiTrailId = new SelectList(ApiTrail.GetApiTrails(), "ApiTrailId", "Name");
 			
 			var thisTrail = ApiTrail.GetDetails(id);
-			// var id = apiTrail.TrailId;
+			// var id = apiTrail.ApiTrailId;
 			return View(thisTrail) ;
 		}
-		// RedirectToAction("Details/@{apiTrail.TrailId}")
+		// RedirectToAction("Details/@{apiTrail.ApiTrailId}")
 
 		// "/Trails/Details/@(trail.TrailId)"
 
