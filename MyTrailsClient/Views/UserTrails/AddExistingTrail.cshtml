@@ -1,0 +1,15 @@
+@model MyTrailsClient.Models.VisitEntry
+
+<h2>Choose an existing trail</h2>
+
+@using (Html.BeginForm())
+{
+  @* @Html.HiddenFor(m => m.VisitEntryId) *@
+  @Html.Label("Select trail")
+  @Html.DropDownList("UserTrailId")
+  @* @Html.Label("Select trail by name")
+	@Html.DropDownList() *@
+
+  
+  <input type="submit" value="Add" class="btn btn-default" />
+}

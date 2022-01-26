@@ -2,7 +2,7 @@
   ViewData["Title"] = "Home Page";
 }
 @using MyTrailsClient.Models;
-@model MyTrailsClient.Models.ApiTrail
+@* @model MyTrailsClient.Models.ApiTrail *@
 <h2>My Trails</h2>
 
 <p>Your Trail Journal</p>
@@ -22,9 +22,10 @@
 <p>Search Trails:</p>
 @using (Html.BeginForm("Details", "Home", new { id = @ViewBag.id}, FormMethod.Post))
 {
-	@Html.HiddenFor(m => m.TrailId)
-	@Html.Label("Select trail by name")
-	@Html.DropDownList("TrailId")
+	@* @Html.HiddenFor(m => m.TrailId) *@
+	@* @Html.Label("Select trail by name")
+	@Html.DropDownList("TrailId") *@
+	@* @Html.DropDownListFor(m => m.Name, Model.Name, "Select Trail") *@
 	@* @Html.DropDownListFor(m => m.Name, new SelectList(Enum.GetValues(typeof(ApiTrail))), "Select Trail") *@
 
 	<button type="submit" class="btn btn-primary">See Trail</button>

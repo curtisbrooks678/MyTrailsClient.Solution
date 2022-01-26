@@ -30,7 +30,7 @@ namespace MyTrailsClient.Controllers
       var userUserTrails = _db.UserTrails
         .Where(entry => entry.User.Id == currentUser.Id)
         .ToList();
-       ViewData["SixtyTrails"]= (ApiTrail.GetApiTrails(),"TrailId", "Name");  
+      ViewData["SixtyTrails"]= _db.UserTrails.ToList();  
       return View(userUserTrails);
     } 
 
@@ -129,6 +129,27 @@ namespace MyTrailsClient.Controllers
     {
       var thisUserTrail = _db.UserTrails.FirstOrDefault(userTrail => userTrail.UserTrailId == id);
       return View(thisUserTrail);
+    }
+
+    public ActionResult AddExistingTrail(int id, int UserTrailId)
+    {
+      var allUserTrails = _db.UserTrails.FirstOrDefault(userTrail => userTrail.UserTrailId == id);
+      ViewBag.UserTrailId = new SelectList(_db.UserTrails, "UserTrailId", "Name");
+      return View(allUserTrails);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> AddExistingTrail(UserTrail userTrail)
+    {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userTrailTestList = _db.UserTrails
+        .Where(entry => entry.UserTrailId == 1)
+        .ToList();
+      var userTrailTest = userTrailTestList[0];
+      var userId1 = userTrailTest.User.Id;
+      userId1 = currentUser.Id;
+      return RedirectToAction("Index");
     }
     
   }
