@@ -12,19 +12,25 @@ using System.Security.Claims;
 namespace MyTrailsClient.Controllers
 {
   [Authorize]
-  public class UserTrailController : Controller
+  public class UserTrailsController : Controller
   {
     private readonly MyTrailsClientContext _db;
-    public UserTrailController(MyTrailsClientContext db)
+    private readonly UserManager<ApplicationUser> _userManager;
+    public UserTrailsController(UserManager<ApplicationUser> userManager, MyTrailsClientContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      List<UserTrail> model = _db.UserTrails.ToList();
-      return View(model);
-    }
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userUserTrails = _db.UserTrails
+        .Where(entry => entry.User.Id == currentUser.Id)
+        .ToList();
+      return View(userUserTrails);
+    } 
 
     public ActionResult Create()
     {
@@ -32,31 +38,44 @@ namespace MyTrailsClient.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(UserTrail userTrail)
+    public async Task<ActionResult> Create(UserTrail userTrail, int VisitEntryId)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      userTrail.User = currentUser;
       _db.UserTrails.Add(userTrail);
+      _db.SaveChanges();
+      if (VisitEntryId != 0)
+      {
+        _db.UserTrailVisitEntry.Add(new UserTrailVisitEntry() { VisitEntryId = VisitEntryId, UserTrailId = userTrail.UserTrailId });
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      var thisUserTrail = _db.UserTrails
-          .Include(userTrail => userTrail.JoinEntities)
-          .ThenInclude(join => join.VisitEntry)
-          .FirstOrDefault(userTrail => userTrail.UserTrailId == id);
-      return View(thisUserTrail);
+        var thisUserTrail = _db.UserTrails
+        .Include(userTrail => userTrail.JoinEntities)
+        .ThenInclude(join => join.VisitEntry)
+        .FirstOrDefault(userTrail => userTrail.UserTrailId == id);
+        return View(thisUserTrail);
     }
 
     public ActionResult Edit(int id)
     {
       var thisUserTrail = _db.UserTrails.FirstOrDefault(userTrail => userTrail.UserTrailId == id);
+      ViewBag.UserTrailId = new SelectList(_db.UserTrails, "UserTrailId", "Name");
       return View(thisUserTrail);
     }
 
     [HttpPost]
-    public ActionResult Edit(UserTrail userTrail)
+    public ActionResult Edit(UserTrail userTrail, int VisitEntryId)
     {
+      if (VisitEntryId != 0)
+      {
+        _db.UserTrailVisitEntry.Add(new UserTrailVisitEntry() { VisitEntryId = VisitEntryId, UserTrailId = userTrail.UserTrailId });
+      }
       _db.Entry(userTrail).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -74,7 +93,7 @@ namespace MyTrailsClient.Controllers
       var thisUserTrail = _db.UserTrails.FirstOrDefault(userTrail => userTrail.UserTrailId == id);
       _db.UserTrails.Remove(thisUserTrail);
       _db.SaveChanges();
-      return RedirectToAction("Index"); 
+      return RedirectToAction("Index");
     }
 
     [HttpPost]
