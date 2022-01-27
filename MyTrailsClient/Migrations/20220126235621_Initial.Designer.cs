@@ -9,8 +9,8 @@ using MyTrailsClient.Models;
 namespace MyTrailsClient.Migrations
 {
     [DbContext(typeof(MyTrailsClientContext))]
-    [Migration("20220125221417_EditTrailsDb")]
-    partial class EditTrailsDb
+    [Migration("20220126235621_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
