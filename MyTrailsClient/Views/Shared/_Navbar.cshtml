@@ -1,0 +1,39 @@
+@* <nav>
+  <ul id="nav-ul">
+    <li>
+      <p id="nav-logo">@Html.ActionLink("MyTrails", "Index", "Home")</p>
+    </li>
+    <li id="nav-li-2">
+      <p>@Html.ActionLink("Trails", "Index", "UserTrails")</p>
+    </li>
+    <li>
+      <p>@Html.ActionLink("Journal Entries", "Index", "VisitEntries")</p>
+    </li>
+    <li>
+      <p>@Html.ActionLink("Log In", "Login", "Account")</p>
+    </li>
+    <li>
+      <p>@Html.ActionLink("Register", "Index", "Account")</p>
+    </li>
+  </ul>
+</nav> *@
+
+<nav>
+  <ul id="nav-ul">
+    <li>
+      <p id="nav-logo">@Html.ActionLink("MY TRAILS", "Index", "Home")</p>
+    </li>
+    <li id="nav-li-2">
+      <p>@Html.ActionLink("Trails", "Index", "UserTrails")</p>
+    </li>    
+    <li>
+      <p>@Html.ActionLink("Journal Entries", "Index", "VisitEntries")</p>
+    </li>
+    <li>
+      <p>@Html.ActionLink("Log In", "Login", "Account")</p>
+    </li>
+    <li>
+      <p id="nav-last">@Html.ActionLink("Register", "Index", "Account")</p>
+    </li>
+  </ul>
+</nav>
