@@ -101,7 +101,7 @@ namespace MyTrailsClient.Controllers
     [HttpPost]
     public ActionResult DeleteVisitEntry(int joinId)
     {
-      var joinEntry = _db.UserTrailVisitEntry.FirstOrDefault(entry => entry.UserTrailId == joinId);
+      var joinEntry = _db.UserTrailVisitEntry.FirstOrDefault(entry => entry.UserTrailVisitEntryId == joinId);
       _db.UserTrailVisitEntry.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
