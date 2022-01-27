@@ -1,18 +1,21 @@
 @using MyTrailsClient.ViewModels
 @model LoginViewModel
 
-<h2>Log into your account</h2>
-<hr />
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(m => m.Email)
-  @Html.TextBoxFor(m => m.Email, new { @class="form-control" })
-  <br>
-  @Html.LabelFor(m => m.Password)
-  @Html.PasswordFor(m => m.Password, new { @class="form-control" })
-  <br>
-  <button type="submit" value="Log in" class="btn btn-primary">Log In</button>
-}
-
-<p>@Html.ActionLink("Register", "Register")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<div class="format-box row">
+  <div class="col-9">
+  <h3>Log into your account</h3>
+  <hr />
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email, new { @class="form-control" })
+    <br>
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password, new { @class="form-control" })
+    <br>
+    <button type="submit" value="Log in" class="btn btn-primary">Log In</button>
+  }
+  <hr />
+  <p>Don't have an account? @Html.ActionLink("Register Here", "Register").</p>
+  </div>
+</div>

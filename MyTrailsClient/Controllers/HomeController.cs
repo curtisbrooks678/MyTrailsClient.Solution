@@ -47,12 +47,6 @@ namespace MyTrailsClient.Controllers
       return View(allTrails);
 		}
 
-		public IActionResult ExistingTrails()
-		{
-			var allTrails = ApiTrail.GetApiTrails();
-      return View(allTrails);
-		}
-
 		// "/Trails/Details/@(trail.TrailId)"
 
 		public IActionResult Privacy()
