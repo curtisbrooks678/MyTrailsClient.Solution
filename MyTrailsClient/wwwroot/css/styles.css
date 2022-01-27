@@ -34,6 +34,7 @@ h2 {
 
 .container {
   font-family: 'Lato', sans-serif;
+  padding-top: 5.5em;
 }
 
 .format-box {
@@ -68,11 +69,28 @@ a.btn:hover {
   background-color: #3D5F25;  
 }
 
+/* FOOTER */
+.footer {
+  background-color: rgb(255, 228, 139);
+  color: burlywood;
+  font-size: .8em;
+  margin-top: 3em;
+  padding-top: .5em;
+  padding-bottom: .3em;
+  width:100%;
+  bottom: 0px;
+  position: relative;
+}
+
 /* NAV BAR */
 
 nav {
-  /* background-color: #3D5F25; */
+  background-color: #FFEDC2;
   color: #3D5F25;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  z-index:1;
 }
 
 #nav-ul {
