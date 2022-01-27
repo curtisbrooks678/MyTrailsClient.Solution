@@ -107,10 +107,17 @@ namespace MyTrailsClient.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddVisitEntry(int id)
+    public async Task<ActionResult> AddVisitEntry(int id)
     {
       var thisUserTrail = _db.UserTrails.FirstOrDefault(userTrail => userTrail.UserTrailId == id);
-      ViewBag.VisitEntryId = new SelectList(_db.VisitEntries, "VisitEntryId", "VisitDate");
+      
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userVisitEntries = _db.VisitEntries
+        .Where(entry => entry.User.Id == currentUser.Id)
+        .ToList();
+      
+      ViewBag.VisitEntryId = new SelectList(userVisitEntries, "VisitEntryId", "VisitDate");
       return View(thisUserTrail);
     }
 

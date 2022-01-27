@@ -32,9 +32,14 @@ namespace MyTrailsClient.Controllers
       return View(userVisitEntries);
     } 
 
-    public ActionResult Create()
+    public async Task<ActionResult> Create()
     {
-      ViewBag.UserTrailId = new SelectList(_db.UserTrails, "UserTrailId", "Name");
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userUserTrails = _db.UserTrails
+        .Where(entry => entry.User.Id == currentUser.Id)
+        .ToList();
+      ViewBag.UserTrailId = new SelectList(userUserTrails, "UserTrailId", "Name");
       return View();
     }
 
@@ -106,10 +111,17 @@ namespace MyTrailsClient.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddUserTrail(int id)
+    public async Task<ActionResult> AddUserTrail(int id)
     {
       var thisVisitEntry = _db.VisitEntries.FirstOrDefault(visitEntry => visitEntry.VisitEntryId == id);
-      ViewBag.UserTrailId = new SelectList(_db.UserTrails, "UserTrailId", "Name");
+      
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userUserTrails = _db.UserTrails
+        .Where(entry => entry.User.Id == currentUser.Id)
+        .ToList();
+      
+      ViewBag.UserTrailId = new SelectList(userUserTrails, "UserTrailId", "Name");
       return View(thisVisitEntry);
     }
 
