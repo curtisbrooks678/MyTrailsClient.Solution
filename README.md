@@ -18,7 +18,6 @@
 * HTML
 * CSS
 
-
 ## Description
 _A MVC web application where users can find trails from the MyTrails API and can create their own accounts to keep a journal of their own hiking and foraging adventures. You can find the MyTrails API here:_ 
 https://github.com/kpundt93/MyTrails.Solution
@@ -36,25 +35,19 @@ https://github.com/kpundt93/MyTrails.Solution
   copy button
 * Open the terminal on your desktop
 * Once in the terminal, use it to navigate to your desktop folder
-* Once inside your desktop folder, use the command `git clone https://github.com/kpundt93/MyTrails.Solution`
+* Once inside your desktop folder, use the command `git clone https://github.com/kpundt93/MyTrailsClient.Solution`
 * After cloning the project, navigate into it using the command `cd MyTrailsClient.Solution
-* Create a .gitignore file in the root directory and add: 
-  
-  */obj/
-  */bin/
-  */appsettings.json
-
 * Create an appsettings.json file in the root directory and add:
 ```
   {
   "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=my_trails;uid=root;pwd=[your-mysql-password];"
+      "DefaultConnection": "Server=localhost;Port=3306;database=my_trails_db;uid=[YOUR MYSQL USER ID];pwd=[YOUR MYSQL PASSWORD];"
     }
   }
 
 ```
 * Run the command `git init`
-* Run the command `cd MyTrailsClient` to navigate the `MyTrailsClient.Solutions\MyTrails` main project folder  
+* Run the command `cd MyTrailsClient` to navigate to the `MyTrailsClient.Solution\MyTrailsClient` main project      folder  
 * Run the command `dotnet restore` to install project dependencies
 * Run the command `dotnet ef database update`
 * Run the command `dotnet run` to run the project in the browser
