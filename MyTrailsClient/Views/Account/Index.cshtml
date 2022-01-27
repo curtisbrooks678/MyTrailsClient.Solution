@@ -1,8 +1,17 @@
-<h2>Account Access</h2>
+<h3>Account Access</h3>
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-  <p>Hello @User.Identity.Name!</p>
+  <h4>Hello @User.Identity.Name!</h4>
+  <br>
+  <h4>Welcome to MyTrails</h4>
+  <h5>A place to track your favorite hiking trails and foraging spots.</h5>
+
+  @Html.ActionLink("View MyTrails", "Index", "UserTrails", new { @class ="link"})
+  @Html.ActionLink("View My Journal Entries", "Index", "VisitEntries", new { @class ="link"})
+  
+  <hr />
+  <p>@Html.ActionLink("Log out", "LogOut")</p>
 }
 else
 {

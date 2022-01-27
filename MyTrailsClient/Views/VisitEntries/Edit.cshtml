@@ -1,43 +1,41 @@
 @model MyTrailsClient.Models.VisitEntry
 
-<h2>Edit your Visit Entry</h2>
-<hr />
-<h3>Visit: @Model.VisitDate.ToShortDateString()</h3>
+<div class="format-box row">
+  <div class="col-8">
+  <h3>Edit Visit: @Model.VisitDate.ToShortDateString()</h3>
 
-@using(Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.VisitEntryId)
+  @using(Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.VisitEntryId)
 
-  @Html.LabelFor(m => m.VisitDate,"Visit Date", new { @class="form-label"})
-  <br>
-  @Html.TextBoxFor(m => m.VisitDate, new { @class="form-control col-6", @type = "date", @format="{0:yyyy-MM-dd}"})
+    @Html.LabelFor(m => m.VisitDate,"Visit Date:", new { @class="form-label" })<br>
+    @Html.TextBoxFor(m => m.VisitDate, new { @class="form-control", @type = "date", @format="{0:yyyy-MM-dd}" })
 
-  @Html.LabelFor(m => m.Rating, new { @class="form-label"})
-  <br>
-  @Html.TextBoxFor(m => m.Rating, new { @type="number", @min="0", @max="5", @class="form-control col-6"})
+    @Html.LabelFor(m => m.Rating, "Rating:", new { @class="form-label" })<br>
+    @Html.TextBoxFor(m => m.Rating, new { @type="number", @min="0", @max="5", @class="form-control" })
 
-  @Html.LabelFor(m => m.ActivityLevel, "Activity Level", new { @class="form-label"})
-  <br>
-  @Html.TextBoxFor(m => m.ActivityLevel, new { @class="form-control col-6" })
+    @Html.LabelFor(m => m.ActivityLevel, "Activity Level:", new { @class="form-label" })<br>
+    @Html.TextBoxFor(m => m.ActivityLevel, new { @class="form-control" })
 
-  @Html.LabelFor(m => m.Bounty, new { @class="form-label"})
-  <br>
-  @Html.TextBoxFor(m => m.Bounty, new { @class="form-control col-6" })
+    @Html.LabelFor(m => m.Bounty, "Bounty:", new { @class="form-label" })<br>
+    @Html.TextBoxFor(m => m.Bounty, new { @class="form-control" })
 
-  @Html.LabelFor(m => m.Latitude, new { @class="form-label"})
-  <br>
-  @Html.TextBoxFor(m => m.Latitude, new { @type="float", @class="form-control col-6" })
+    @Html.LabelFor(m => m.Latitude, "Latitude:", new { @class="form-label" })<br>
+    @Html.TextBoxFor(m => m.Latitude, new { @type="float", @class="form-control" })
 
-  @Html.LabelFor(m => m.Longitude, new { @class="form-label"})
-  <br>
-  @Html.TextBoxFor(m => m.Longitude, new { @type="float", @class="form-control col-6" })
+    @Html.LabelFor(m => m.Longitude, "Longitude:", new { @class="form-label" })<br>
+    @Html.TextBoxFor(m => m.Longitude, new { @type="float", @class="form-control" })
 
-  @Html.LabelFor(m => m.Notes, new { @class="form-label"})
-  <br>
-  @Html.TextAreaFor(m => m.Notes, new { @class="form-control col-6" })
-  
-  <div class="form-label">@Html.Label("Select User Trail")</div>
-  @Html.DropDownList("UserTrailId", (IEnumerable<SelectListItem>)ViewBag.id, new { @class="form-control col-6" })
+    @Html.LabelFor(m => m.Notes, "Notes:", new { @class="form-label" })<br>
+    @Html.TextAreaFor(m => m.Notes, new { @class="form-control" })
+    
+    <div class="form-label">@Html.Label("Select User Trail:")</div>
+    @Html.DropDownList("UserTrailId", (IEnumerable<SelectListItem>)ViewBag.id, new { @class="form-control" })
 
-  <input type="submit" value="Add new Visit Entry" class="btn btn-default" />
-}
+    <input type="submit" value="Save Changes" class="btn btn-default" />
+  }
+  </div>
+  <div class="col-4">
+    <img id="map-compass-icon" src="~/img/map-compass.png" />
+  </div>
+</div>

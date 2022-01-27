@@ -1,34 +1,68 @@
-﻿@{
-  ViewData["Title"] = "Home Page";
-}
+﻿
 @using MyTrailsClient.Models;
 @model MyTrailsClient.Models.ApiTrail
-<h2>My Trails</h2>
 
-<p>Your Trail Journal</p>
+<div class="format-box row">
+	<div class="col-7">
+		<img class="photo-logo" id="nav-logo" src="/img/mytrails_logo.png" /> Welcome to MyTrails
 
-<p>Create an account or log in to access your trail journals</p>
-<p>@Html.ActionLink("Create an account", "Index", "Account")</p>
-<p>@Html.ActionLink("Log in", "Login", "Account")</p>
-<p>@Html.ActionLink("Log Out", "LogOut", "Account")</p>
-<p>@Html.ActionLink("UserTrails", "Index", "UserTrails")</p>
-<p>@Html.ActionLink("VisitEntries", "Index", "VisitEntries")</p>
+	</div>
+	<div class="col-5">
+		<p>@Html.ActionLink("Create an account", "Index", "Account")</p>
+		<p>@Html.ActionLink("Log In", "Login", "Account")</p>
+		<p>@Html.ActionLink("Log Out", "LogOut", "Account")</p>
+	</div>
+</div>
 
-<p>Ready to just get out there? Search for a trail and be on your way!</p>
+<div class="format-box row">
+		<div class="col-3">
+		<img id="journal-icon" src="/img/journal.png" />
+		</div>
+	
+	<div class="stuff col-9">
+		<h3 id="index-header">Your Trail Journal</h3>
+		<h4>Create an account or log in to access your trail journals</h4>
+		
+		<p>@Html.ActionLink("View Journal Entries", "Index", "VisitEntries", new {@class="btn"})</p>
+	</div>
+</div>
 
-<h2>60 Hikes Within 60 Miles of PDX</h2>
-<p><em>Based on the book by Paul Gerard</em></p>
+<div class="format-box row">
+	<div class="stuff col-9">
+		<h3 class="index-header">Your Trails</h3>
+		<h4>Create and save information about your favorite hikes in the PNW.</h4>
+		<p>@Html.ActionLink("View Your Trails", "Index", "UserTrails")</p>
+	</div>
+	<div class="col-3">
+		<img id="map-icon" src="/img/map.png" />
+	</div>
+	
+</div>
 
-<p>Search Trails:</p>
-@using (Html.BeginForm("Details", "Home", new { id = @ViewBag.id}, FormMethod.Post))
-{
-	@Html.HiddenFor(m => m.TrailId)
-	@Html.Label("Select trail by name")
-	@Html.DropDownList("TrailId")
-	@* @Html.DropDownListFor(m => m.Name, new SelectList(Enum.GetValues(typeof(ApiTrail))), "Select Trail") *@
+<div class="format-box row">
+	<div class="col-3">
+  	<img id="find-trails-icon" src="/img/three-mountains-trails.png"/>
+	</div>
+	<div class="stuff col-9">
+		<h3 class="index-header">Find Trails</h3>
+		<h4>Look through 60 Hikes In 60 Miles of PDX</h4>
+		<p><em>Based on the book by Paul Gerard</em></p>
+		<p>@Html.ActionLink("Existing Trails", "ExistingTrails", "Home")</p>
+	</div>
+</div>
 
-	<button type="submit" class="btn btn-primary">See Trail</button>
-}
+	@* <!-- <p>Search Trails:</p>
+	@using (Html.BeginForm("Details", "Home", new { id = @ViewBag.id}, FormMethod.Post))
+	{
+		@Html.HiddenFor(m => m.TrailId)
+		@Html.Label("Select trail by name")
+		@Html.DropDownList("TrailId")
+		@* @Html.DropDownListFor(m => m.Name, new SelectList(Enum.GetValues(typeof(ApiTrail))), "Select Trail")
+
+		<button type="submit" class="btn">See Trails</button>
+	} --> *@
+</div>
 <br>
 
 <p>@Html.ActionLink("Return to Home", "Index")</p>
+

@@ -1,19 +1,27 @@
 @model MyTrailsClient.Models.VisitEntry
 
-<h2>Visit Details</h2>
-<hr />
-<h3>Visit Date: @Html.DisplayFor(m => m.VisitDate)</h3>
-<ul>
-  <li>Rating: @Html.DisplayFor(m => m.Rating)</li>
-  <li>Activity Level: @Html.DisplayFor(m => m.ActivityLevel)</li>
-  <li>Bounty: @Html.DisplayFor(m => m.Bounty)</li>
-  <li>Latitude: @Html.DisplayFor(m => m.Latitude)</li>
-  <li>Longitude: @Html.DisplayFor(m => m.Longitude)</li>
-  <li>Notes: @Html.DisplayFor(m => m.Notes)</li>
-  
-</ul>
-
-<p>@Html.ActionLink("Add User Trail", "AddUserTrail", new { id = Model.VisitEntryId })</p>
-<p>@Html.ActionLink("Edit Visit", "Edit", new { id = Model.VisitEntryId })</p>
-<p>@Html.ActionLink("Delete Visit", "Delete", new { id = Model.VisitEntryId})</p>
-<p>@Html.ActionLink("Home", "Index")</p>
+<div class="format-box row">
+  <div class="col-8">
+    <h3>Visit Details</h3>
+    <hr />
+    
+    <ul>
+      <li><h5>Visit Date: @Html.DisplayFor(m => m.VisitDate)</h5></li>
+      <li><h5>Rating: @Html.DisplayFor(m => m.Rating)</h5></li>
+      <li><h5>Activity Level: @Html.DisplayFor(m => m.ActivityLevel)</h5></li>
+      <li><h5>Bounty: @Html.DisplayFor(m => m.Bounty)</h5></li>
+      <li><h5>Latitude: @Html.DisplayFor(m => m.Latitude)</h5></li>
+      <li><h5>Longitude: @Html.DisplayFor(m => m.Longitude)</h5></li>
+      <li><h5>Notes: @Html.DisplayFor(m => m.Notes)</h5></li>
+      
+    </ul>
+    <hr />
+    <p>@Html.ActionLink("Add Trail to this Visit", "AddUserTrail", new { id = Model.VisitEntryId })</p>
+    <p>@Html.ActionLink("Edit Visit", "Edit", new { id = Model.VisitEntryId })</p>
+    <p>@Html.ActionLink("Delete Visit", "Delete", new { id = Model.VisitEntryId})</p>
+    <p>@Html.ActionLink("Back to Journal Entries", "Index")</p>
+  </div>
+  <div class="col-4">
+    <img id="tree-water-icon" src="~/img/tree-water.png" />
+  </div>
+</div>

@@ -1,38 +1,43 @@
 @model MyTrailsClient.Models.UserTrail
 
-<h2>Trail Details: @Html.DisplayFor(m => m.Name)</h2>
-<hr />
-<h3>Length: @Html.DisplayFor(m => m.Length)</h3>
-<h3>Configuration: @Html.DisplayFor(m => m.Configuration)</h3>
-<h3>Elevation Gain: @Html.DisplayFor(m => m.ElevationGain)</h3>
-<h3>Difficulty: @Html.DisplayFor(m => m.Difficulty)</h3>
-<h3>Family Friendly: @Html.DisplayFor(m => m.FamilyFriendly)</h3>
-<h3>Latitude: @Html.DisplayFor(m => m.Latitude)</h3>
-<h3>Longitude: @Html.DisplayFor(m => m.Longitude)</h3>
-<h3>Season: @Html.DisplayFor(m => m.Season)</h3>
-<h3>Status: @Html.DisplayFor(m => m.Status)</h3>
+<div class="format-box row">
+  <div class="col-8">
+    <h3>Trail Details: @Html.DisplayFor(m => m.Name)</h3>
+    <hr />
+    <h5>Length: @Html.DisplayFor(m => m.Length)</h3>
+    <h5>Configuration: @Html.DisplayFor(m => m.Configuration)</h5>
+    <h5>Elevation Gain: @Html.DisplayFor(m => m.ElevationGain)</h5>
+    <h5>Difficulty: @Html.DisplayFor(m => m.Difficulty)</h5>
+    <h5>Family Friendly: @Html.DisplayFor(m => m.FamilyFriendly)</h5>
+    <h5>Latitude: @Html.DisplayFor(m => m.Latitude)</h5>
+    <h5>Longitude: @Html.DisplayFor(m => m.Longitude)</h5>
+    <h5>Season: @Html.DisplayFor(m => m.Season)</h5>
+    <h5>Status: @Html.DisplayFor(m => m.Status)</h5>
+    <br>
 
 
-@if (@Model.JoinEntities.Count == 0)
-{
-  <p>You haven't logged any visits for this trail!</p>
-}
-else
-{
-  <h4>Visits to this trail:</h4>
-  <ul>
-    @foreach(var join in Model.JoinEntities)
+    @if (@Model.JoinEntities.Count == 0)
     {
-      <li>@join.VisitEntry.VisitDate</li>
-      @using (Html.BeginForm("DeleteVisitEntry", "UserTrail"))
+      <p>You haven't logged any visits for this trail!</p>
+    }
+    else
     {
-      @Html.Hidden("joinId", @join.UserTrailVisitEntryId)
-      <input type="submit" value="Delete" />
+      <h5>Visits to this trail:</h5>
+      <ul>
+        @foreach(var join in Model.JoinEntities)
+        {
+          <li>@join.VisitEntry.VisitDate</li>
+          @using (Html.BeginForm("DeleteVisitEntry", "UserTrail"))
+        {
+          @Html.Hidden("joinId", @join.UserTrailVisitEntryId)
+          <input type="submit" value="Delete" class="btn"/>
+        }
+        }
+      </ul>
     }
-    }
-  </ul>
-}
-
-<p>@Html.ActionLink("Add Visit Entry", "AddVisitEntry", new { id = Model.UserTrailId })</p>
-<p>@Html.ActionLink("Edit Trail", "Edit", new { id = Model.UserTrailId })</p>
-<p>@Html.ActionLink("Delete Trail", "Delete", new { id = Model.UserTrailId})</p>
+    <hr />
+    <p>@Html.ActionLink("Add Journal Entry", "AddVisitEntry", new { id = Model.UserTrailId })</p>
+    <p>@Html.ActionLink("Edit Trail", "Edit", new { id = Model.UserTrailId })</p>
+    <p>@Html.ActionLink("Delete Trail", "Delete", new { id = Model.UserTrailId})</p>
+  </div>
+</div>
