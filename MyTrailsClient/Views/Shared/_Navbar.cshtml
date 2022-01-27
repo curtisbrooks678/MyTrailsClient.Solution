@@ -1,3 +1,5 @@
+@using System.Security.Claims;
+
 <nav>
   <ul id="nav-ul">
     <li>
@@ -9,11 +11,20 @@
     <li>
       <p>@Html.ActionLink("Journal Entries", "Index", "VisitEntries")</p>
     </li>
+    @if (User.Identity.IsAuthenticated)
+    {
+      <li>
+        <p>@Html.ActionLink("Log Out", "LogOut", "Account")</p>
+      </li>
+    }
+    else
+    {
     <li>
-      <p>@Html.ActionLink("Log In", "Login", "Account")</p>
+      <p>@Html.ActionLink("Log in", "Login", "Account")</p>
     </li>
     <li>
       <p id="nav-last">@Html.ActionLink("Register", "Index", "Account")</p>
     </li>
+    }
   </ul>
 </nav>
