@@ -1,0 +1,8 @@
+<h1>Existing Trails</h1>
+
+<ul>
+  @foreach (ApiTrail apiTrail in Model)
+  {
+    <li>@Html.ActionLink($"{apiTrail.Name}", "Details", new { id = apiTrail.TrailId})</li>
+  }
+</ul>

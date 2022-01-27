@@ -39,6 +39,12 @@ namespace MyTrailsClient.Controllers
 			// return RedirectToAction("Details");
 		}
 
+		public IActionResult ExistingTrails()
+		{
+			var allTrails = ApiTrail.GetApiTrails();
+      return View(allTrails);
+		}
+
 		// "/Trails/Details/@(trail.TrailId)"
 
 		public IActionResult Privacy()
@@ -51,6 +57,8 @@ namespace MyTrailsClient.Controllers
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 		}
+
+
 
 		
 	}
