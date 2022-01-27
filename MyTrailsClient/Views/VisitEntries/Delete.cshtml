@@ -1,9 +1,13 @@
-<h2>Delete Visit Entry</h2>
-<hr />
-<p>Are you sure you want to delete @Model.VisitDate?</p>
+<div class="format-box row">
+  <div class="col-8">
+  <h3>Delete Visit Entry</h3>
+  <hr />
+  <h5>Are you sure you want to delete your visit on @Model.VisitDate?</h5>
 
-@using(Html.BeginForm())
-{
-  <input type="submit" value="Delete Visit Entry" class="btn btn-dark"/>
-}
-<p>@Html.ActionLink("Cancel", "Details", new { id = Model.VisitEntryId })</p>
+  @using(Html.BeginForm())
+  {
+    <input type="submit" value="Delete Visit Entry" class="btn"/>
+  }
+  <p>@Html.ActionLink("Cancel", "Details", new { id = Model.VisitEntryId })</p>
+  </div>
+</div>

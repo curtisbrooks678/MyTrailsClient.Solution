@@ -1,16 +1,21 @@
-<h2>View all Journal Entries</h2>
-<hr />
-
-@if(Model.Count == 0)
-{
-  <p>You currently have no journal entries.</p>
-}
-<ul>
-  @foreach(VisitEntry visitEntry in Model)
+<div class="format-box row">
+  <div class="col-9">
+  <h3>View all Journal Entries</h3>
+  <hr />
+  @if(Model.Count == 0)
   {
-    <li>@Html.ActionLink($"{visitEntry.VisitDate}", "Details", new { id = visitEntry.VisitEntryId })</li>
+    <p>You currently have no journal entries.</p>
   }
-</ul>
-
-<p>@Html.ActionLink("Add a new Visit Entry", "Create")</p>
-<p>@Html.ActionLink("Existing Trails", "ExistingTrails", "Home")</p>
+  <ul>
+    @foreach(VisitEntry visitEntry in Model)
+    {
+      <li>@Html.ActionLink($"{visitEntry.VisitDate}", "Details", new { id = visitEntry.VisitEntryId })</li>
+    }
+  </ul>
+  <hr />
+  <p>@Html.ActionLink("Add a new Visit Entry", "Create")</p>
+  </div>
+  <div class="col-3">
+    
+  </div>
+</div>

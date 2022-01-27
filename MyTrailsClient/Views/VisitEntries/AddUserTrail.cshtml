@@ -1,18 +1,22 @@
 @model MyTrailsClient.Models.VisitEntry
 
-<h2>Add a User Trail</h2>
+<div class="format-box row">
+  <div class="col-9">
+  <h3>Add a User Trail</h3>
+  <hr />
+  <h5>Add a trail to your journal entry from: @Html.DisplayFor(m => m.VisitDate)</h5>
 
-<h4>Add a User Trail to this Visit Entry: @Html.DisplayFor(m => m.VisitDate)</h4>
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(m => m.VisitEntryId)
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(m => m.VisitEntryId)
+    <div class = "form-label">@Html.Label("Select Trail:")</div>
+    @Html.DropDownList("UserTrailId")
 
-  @Html.Label("Select User Trail")
-  @Html.DropDownList("UserTrailId")
+    <input type="submit" value="Save" class="btn" />
 
-  <input type="submit" value="Save" />
-
-}
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
+  }
+  <hr />
+  <p>@Html.ActionLink("Back to list", "Index")</p>
+  </div>
+</div>

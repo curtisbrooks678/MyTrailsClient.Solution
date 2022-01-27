@@ -1,18 +1,18 @@
 @model MyTrailsClient.Models.UserTrail
 
-<h2>Add a Visit Entry</h2>
+<h2>Add a Journal Entry</h2>
 
-<h4>Add a Visit Entry to this User Trail: @Html.DisplayFor(m => m.Name)</h4>
+<h4>Add a Journal Entry to this Trail: @Html.DisplayFor(m => m.Name)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(m => m.UserTrailId)
 
-  @Html.Label("Select Visit Entry")
+  @Html.Label("Select Journal Entry")
   @Html.DropDownList("VisitEntryId")
 
   <input type="submit" value="Save" />
 
 }
 
-<p>@Html.ActionLink("Back to User Trail List", "Index")</p>
+<p>@Html.ActionLink("Back to MyTrails List", "Index")</p>

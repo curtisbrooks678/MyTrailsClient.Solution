@@ -1,0 +1,177 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Satisfy&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"); */
+
+/* #3D5F25 - Green
+#FFEDC2 - yellow
+#ED9F18 - orange
+#F9A72B */
+
+
+body {
+  background-color: #FFEDC2;
+  font-family: Lato;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: rgb(235, 137, 45);
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.link {
+  padding: 3em;
+}
+
+h2 {
+  font-family: monospace;
+}
+
+/* BOX FORMATTING TAGS */
+
+.container {
+  font-family: 'Lato', sans-serif;
+}
+
+.format-box {
+  background-color: white;
+  border-radius: 15px;
+  padding: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-bottom: 1.5em;
+  height: max-content;
+}
+
+.stuff {
+  padding-left: 5em;
+  padding-top: .5em;
+}
+
+/* BUTTON TAGS */
+
+.btn {
+  display: block;
+  margin: 1em;
+  background-color: #F9A72B;
+  color: #FFFF;
+  border-radius: 12px;
+  position: relative;
+}
+
+a.btn:hover {
+  color: white;
+  font-weight: bold;
+  background-color: #3D5F25;  
+}
+
+/* NAV BAR */
+
+nav {
+  /* background-color: #3D5F25; */
+  color: #3D5F25;
+}
+
+#nav-ul {
+  display: flex;
+}
+
+#nav-logo {
+  margin-left: 1.5rem;
+  font-size: 1.4rem;
+  font-family: 'Josefin Sans', sans-serif;;
+}
+
+#nav-li-2 {
+  margin-left:auto;
+}
+
+#nav-last {
+  padding-right: 1em;
+}
+
+nav li{
+  padding-right: 1em;
+  padding-top: 1em;
+}
+
+nav li a {
+  color: #3D5F25;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+nav li a:hover {
+  border-top: .1em solid rgb(49, 54, 45);
+  color: rgb(49, 54, 45);
+}
+
+/* IMAGE TAGS: */
+
+.photo-logo {
+  width: 225px;
+  height: auto;
+}
+
+#secret-spot-icon {
+  width: 200px;
+}
+
+#journal-icon {
+  width: 200px;
+  float: left;
+  margin: 1.25em;
+}
+
+#map-icon {
+  width: 200px;
+  float: right;
+  margin: 1.25em;
+}
+
+#mushroom-icon {
+  width: 200px;
+  padding-left: 2em;
+}
+
+#mountain-trail-icon {
+  width: 200px;
+  padding-left: 2em;
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
+#acorn-icon {
+  width: 200px;
+  padding-left: 2em;
+}
+
+#find-trails-icon {
+  width: 200px;
+  float: left;
+  margin: 1.25em;
+}
+
+#tree-water-icon {
+  width: 200px;
+  padding-left: 2em;
+}
+
+#map-compass-icon {
+  width: 200px;
+  padding-left: 2em;
+}
+
+/* FORM: */
+.form-label {
+  padding-top: 1.5em;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.form-radio {
+  margin-right: 0.5em;
+}

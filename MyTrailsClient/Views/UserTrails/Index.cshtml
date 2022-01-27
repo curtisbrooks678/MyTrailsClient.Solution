@@ -1,18 +1,27 @@
 @using MyTrailsClient.Models;
-
-<h2>Trails</h2>
-
-@if (@Model.Count == 0)
-{
-  <h3>No trails have been added yet!</h3>
-}
-
-<ul>
-  @foreach(UserTrail userTrail in Model)
+<div class="format-box row">
+  <div class="col-9">
+  <h3>Your Trails and Foraging Spots</h3>
+  <hr />
+  @if (@Model.Count == 0)
   {
-    <li>@Html.ActionLink($"{userTrail.Name}", "Details", new { id = userTrail.UserTrailId })</li>
+    <h4>No trails have been added yet!</h4>
   }
-</ul>
 
-<p>@Html.ActionLink("Add new custom trail", "Create")</p>
-<p>@Html.ActionLink("Existing Trails", "ExistingTrails", "Home")</p>
+  <ul>
+    @foreach(UserTrail userTrail in Model)
+    {
+      <li>@Html.ActionLink($"{userTrail.Name}", "Details", new { id = userTrail.UserTrailId })</li>
+    }
+  </ul>
+  <hr />
+  <p>@Html.ActionLink("Add new trail", "Create")</p>
+  </div>
+  <div class="col-3">
+    <img id="mushroom-icon" src="~/img/mushrooms.png" />
+    <br>
+    <img id="mountain-trail-icon" src="~/img/mountain-trail.png" />
+    <br>
+    <img id="acorn-icon" src="~/img/acorns.png" />
+  </div>
+</div>

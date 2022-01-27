@@ -1,8 +1,15 @@
-<h1>Existing Trails</h1>
-
-<ul>
-  @foreach (ApiTrail apiTrail in Model)
-  {
-    <li>@Html.ActionLink($"{apiTrail.Name}", "Details", new { id = apiTrail.TrailId})</li>
-  }
-</ul>
+<div class="format-box row">
+  <div class="col-9">
+  <h3>60 Trails In 60 Miles of PDX</h3>
+  <hr />
+  <ul>
+    @foreach (ApiTrail apiTrail in Model)
+    {
+      <li>@Html.ActionLink($"{apiTrail.Name}", "Details", new { id = apiTrail.TrailId})</li>
+    }
+  </ul>
+  <hr />
+  </div>
+  <div class="col-3">
+ </div>
+</div>

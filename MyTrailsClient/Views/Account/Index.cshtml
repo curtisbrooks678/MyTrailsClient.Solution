@@ -1,11 +1,22 @@
-<h2>Account Access</h2>
-<hr />
-@if (User.Identity.IsAuthenticated)
-{
-  <p>Hello @User.Identity.Name!</p>
-}
-else
-{
-  <p>@Html.ActionLink("Register", "Register")</p>
-  <p>@Html.ActionLink("Log in", "Login")</p>
-}
+<div class="format-box row">
+  <div class="col-9">
+  <h3>Account Access</h3>
+  <hr />
+  @if (User.Identity.IsAuthenticated)
+  {
+    <h5>Hello @User.Identity.Name!</h5>
+    <h5>Welcome to MyTrails.</h5>
+    <h5>A place to track your favorite hiking trails and foraging spots.</h5>
+    <br>
+    <p>@Html.ActionLink("View My Trails", "Index", "UserTrails", new { @class ="link"})</p>
+    <p>@Html.ActionLink("View My Journal Entries", "Index", "VisitEntries", new { @class ="link"})</p>
+    <p>@Html.ActionLink("Log out", "LogOut")</p>
+    <hr />
+  }
+  else
+  {
+    <p>@Html.ActionLink("Register", "Register")</p>
+    <p>@Html.ActionLink("Log in", "Login")</p>
+  }
+  </div>
+</div>

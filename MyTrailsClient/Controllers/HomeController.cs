@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using MyTrailsClient.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Dynamic;
 
 namespace MyTrailsClient.Controllers
 {
@@ -20,6 +21,8 @@ namespace MyTrailsClient.Controllers
 			_logger = logger;
 		}
 
+		
+
 		[HttpGet("/")]
 
 		public IActionResult Index()
@@ -29,14 +32,19 @@ namespace MyTrailsClient.Controllers
 			return View();
 		}
 
-		public IActionResult Details(int id)
+		public IActionResult Details(int id, string weatherApiKey, double weatherApiLatitude, double weatherApiLongitude)
 		{ 
-			// ViewBag.ApiTrailId = new SelectList(ApiTrail.GetApiTrails(), "ApiTrailId", "Name");
-			
+			//ViewBag.ApiTrailId = new SelectList(ApiTrail.GetApiTrails(), "ApiTrailId", "Name");
 			var thisTrail = ApiTrail.GetDetails(id);
-			// var id = apiTrail.ApiTrailId;
+			ViewData["weather"] = Weather.GetDetails(weatherApiKey, weatherApiLatitude, weatherApiLongitude);
 			return View(thisTrail);
-			// return RedirectToAction("Details");
+		
+		}
+
+		public IActionResult ExistingTrails()
+		{
+			var allTrails = ApiTrail.GetApiTrails();
+      return View(allTrails);
 		}
 
 		public IActionResult ExistingTrails()
