@@ -27,7 +27,14 @@ a {
 }
 
 h2 {
-  font-family: monospace;
+  font-family: 'Lato', sans-serif;
+  font-size: 2.5em;
+}
+
+.front {
+  font-size: 1.2em;
+  padding-top: .5em;
+  padding-right: 2em;
 }
 
 /* BOX FORMATTING TAGS */
@@ -35,6 +42,7 @@ h2 {
 .container {
   font-family: 'Lato', sans-serif;
   padding-top: 5.5em;
+  padding-bottom: 5.5em;
 }
 
 .format-box {
@@ -50,6 +58,10 @@ h2 {
 .stuff {
   padding-left: 5em;
   padding-top: .5em;
+}
+
+.padder {
+  padding-left: 1.5em;
 }
 
 /* BUTTON TAGS */
@@ -71,15 +83,17 @@ a.btn:hover {
 
 /* FOOTER */
 .footer {
-  background-color: rgb(255, 228, 139);
   color: burlywood;
   font-size: .8em;
   margin-top: 3em;
+  padding-left: 1em;
   padding-top: .5em;
   padding-bottom: .3em;
   width:100%;
+  height: 1em;
   bottom: 0px;
   position: relative;
+  margin-bottom: -5px;
 }
 
 /* NAV BAR */
@@ -178,9 +192,22 @@ nav li a:hover {
   padding-left: 2em;
 }
 
+#trees-stream-icon {
+  width: 200px;
+  padding-left: 2em;
+  margin: 2em;
+  margin-top: 1em;
+}
+
 #map-compass-icon {
   width: 200px;
   padding-left: 2em;
+}
+
+#backpack-icon {
+  width: 200px;
+  padding-left: 2em;
+  margin:2em;
 }
 
 /* FORM: */
