@@ -1,6 +1,10 @@
-<h2>Click below to log out:</h2>
-
-@using (Html.BeginForm("LogOut", "Account"))
+<div class="format-box row">
+  <div class="col-9">
+  <h3>Click below to log out:</h3>
+  <hr />
+  @using (Html.BeginForm("LogOut", "Account"))
   {
-    <button type="submit" class="btn btn-primary" value="Log Out">Log Out</button>
+    <button type="submit" class="btn" value="Log Out">Log Out</button>
   }
+  </div>
+</div>
