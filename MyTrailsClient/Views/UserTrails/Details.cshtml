@@ -27,12 +27,12 @@
         @foreach(var join in Model.JoinEntities)
         {
           <li>@join.VisitEntry.VisitDate</li>
-          @using (Html.BeginForm("DeleteVisitEntry", "UserTrail"))
+          @using (Html.BeginForm("DeleteVisitEntry", "UserTrails"))
         {
           @Html.Hidden("joinId", @join.UserTrailVisitEntryId)
           <input type="submit" value="Delete" class="btn"/>
         }
-        }
+      }
       </ul>
     }
     <hr />

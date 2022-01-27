@@ -3,6 +3,23 @@
 
 <div class="format-box row">
   <div class="col-9">
+  
+  @if (User.Identity.IsAuthenticated)
+  {
+    <h3>Account Access</h3>
+    <hr />
+    <h5>Hello @User.Identity.Name!</h5>
+    <h5>Welcome to MyTrails.</h5>
+    <h5>A place to track your favorite hiking trails and foraging spots.</h5>
+    <br>
+    <p>@Html.ActionLink("View My Trails", "Index", "UserTrails", new { @class ="link"})</p>
+    <p>@Html.ActionLink("View My Journal Entries", "Index", "VisitEntries", new { @class ="link"})</p>
+    <p>@Html.ActionLink("View 60 Trails in 60 Miles of PDX", "ExistingTrails", "Home", new { @class ="link"})</p>
+    <p>@Html.ActionLink("Log out", "LogOut")</p>
+    <hr />
+  }
+  else
+  {
   <h3>Log into your account</h3>
   <hr />
   @using (Html.BeginForm())
@@ -17,5 +34,6 @@
   }
   <hr />
   <p>Don't have an account? @Html.ActionLink("Register Here", "Register").</p>
+  }
   </div>
 </div>

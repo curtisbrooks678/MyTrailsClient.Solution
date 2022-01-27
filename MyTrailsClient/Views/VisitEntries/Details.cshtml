@@ -2,19 +2,35 @@
 
 <div class="format-box row">
   <div class="col-8">
-    <h3>Visit Details</h3>
+    <h3>Visit Details: @Html.DisplayFor(m => m.VisitDate)</h3>
     <hr />
-    
-    <ul>
-      <li><h5>Visit Date: @Html.DisplayFor(m => m.VisitDate)</h5></li>
-      <li><h5>Rating: @Html.DisplayFor(m => m.Rating)</h5></li>
-      <li><h5>Activity Level: @Html.DisplayFor(m => m.ActivityLevel)</h5></li>
-      <li><h5>Bounty: @Html.DisplayFor(m => m.Bounty)</h5></li>
-      <li><h5>Latitude: @Html.DisplayFor(m => m.Latitude)</h5></li>
-      <li><h5>Longitude: @Html.DisplayFor(m => m.Longitude)</h5></li>
-      <li><h5>Notes: @Html.DisplayFor(m => m.Notes)</h5></li>
-      
-    </ul>
+    <h5>Rating: @Html.DisplayFor(m => m.Rating)</h5>
+    <h5>Activity Level: @Html.DisplayFor(m => m.ActivityLevel)</h5>
+    <h5>Bounty: @Html.DisplayFor(m => m.Bounty)</h5>
+    <h5>Latitude: @Html.DisplayFor(m => m.Latitude)</h5>
+    <h5>Longitude: @Html.DisplayFor(m => m.Longitude)</h5>
+    <h5>Notes: @Html.DisplayFor(m => m.Notes)</h5>
+    <br>
+
+    @if (@Model.JoinEntities.Count == 0)
+    {
+      <p>You haven't logged any visits for this trail!</p>
+    }
+    else
+    {
+      <h5>Visits to this trail:</h5>
+      <ul>
+        @foreach(var join in Model.JoinEntities)
+        {
+          <li>@join.UserTrail.Name</li>
+          @using (Html.BeginForm("DeleteUserTrail", "VisitEntries"))
+        {
+          @Html.Hidden("joinId", @join.UserTrailVisitEntryId)
+          <input type="submit" value="Delete" class="btn"/>
+        }
+      }
+      </ul>
+    }
     <hr />
     <p>@Html.ActionLink("Add Trail to this Visit", "AddUserTrail", new { id = Model.VisitEntryId })</p>
     <p>@Html.ActionLink("Edit Visit", "Edit", new { id = Model.VisitEntryId })</p>

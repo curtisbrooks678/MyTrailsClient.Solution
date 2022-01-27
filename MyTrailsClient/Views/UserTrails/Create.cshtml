@@ -17,7 +17,7 @@
     @Html.RadioButtonFor(m => m.Configuration, "Out-and-back", new { @class = "form-radio" })<span>Out & Back</span><br>
     @Html.RadioButtonFor(m => m.Configuration, "Lollipop", new { @class = "form-radio" })<span>Lollipop</span><br>
 
-    @Html.LabelFor(m => m.ElevationGain, "Elevation Gain:", new { @class="form-label" })
+    @Html.LabelFor(m => m.ElevationGain, "Elevation Gain (feet):", new { @class="form-label" })
     @Html.TextBoxFor(m => m.ElevationGain, new { @class="form-control", @type = "number" })
 
     @Html.LabelFor(m => m.Difficulty, "Difficulty:", new { @class="form-label" })<br>

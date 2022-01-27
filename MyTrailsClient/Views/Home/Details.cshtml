@@ -1,21 +1,24 @@
 @using MyTrailsClient.Models;
 @model MyTrailsClient.Models.ApiTrail;
 
-<h1>Trail Info:</h1>
-<ul>
-  <li>Name: @Model.Name</li>
-  <li>Length: @Model.Length miles</li>
-  <li>Configuration: @Model.Configuration</li>
-  <li>Elevation Gain: @Model.ElevationGain ft.</li>
-  <li>Difficulty Level: @Model.Difficulty</li>
-  <li>Family Friendly: @Model.FamilyFriendly</li>
-  <li>Latitude: @Model.Latitude</li>
-  <li>Longitude: @Model.Longitude</li>
-  <li>Season: @Model.Season</li>
-  <li>ViewData["weather"]</li>
-</ul>
-<br>
-
-<br>
-
-<p>@Html.ActionLink("Return to Home", "Index")</p>
+<div class="format-box row">
+  <div class="col-8">
+  <h3>Trail Info:</h3>
+  <hr />
+  <ul>
+    <li>Name: @Model.Name</li>
+    <li>Length: @Model.Length miles</li>
+    <li>Configuration: @Model.Configuration</li>
+    <li>Elevation Gain: @Model.ElevationGain ft.</li>
+    <li>Difficulty Level: @Model.Difficulty</li>
+    <li>Family Friendly: @Model.FamilyFriendly</li>
+    <li>Latitude: @Model.Latitude</li>
+    <li>Longitude: @Model.Longitude</li>
+    <li>Season: @Model.Season</li>
+    <li>ViewData["weather"]</li>
+  </ul>
+  <br>
+  <hr />
+  <p>@Html.ActionLink("Return to Home", "Index")</p>
+  </div>
+</div>

@@ -3,15 +3,18 @@
 @model MyTrailsClient.Models.ApiTrail
 
 <div class="format-box row">
-	<div class="col-7">
-<h3 id="logo-header">Welcome to My Trails</p>
+	<div class="col-4">
 		<img class="photo-logo" id="nav-logo" src="/img/mytrails_logo.png" /> 
-<p>Find where to go and see where you have been. </p>
 	</div>
-	<div class="col-5">
-		<p>@Html.ActionLink("Create an account", "Index", "Account")</p>
-		<p>@Html.ActionLink("Log In", "Login", "Account")</p>
-		<p>@Html.ActionLink("Log Out", "LogOut", "Account")</p>
+	<div class="col-8">
+		<h2>Welcome to MyTrails</h2>
+		<h3><em>Find where to go and see where you've been.</em> </h3>
+		<br>
+		<p class="front">MyTrails is a site for adventurers and foragers.</p>
+		<p class="front">Users are able to track their adventures on the trails or keep track of their foraging spots and their bountiful harvests.
+		</p>
+		@Html.ActionLink("Create an account", "Index", "Account") or 
+		@Html.ActionLink("Log In", "Login", "Account")
 	</div>
 </div>
 
@@ -22,8 +25,8 @@
 	
 	<div class="stuff col-9">
 		<h3 id="index-header">Your Trail Journal</h3>
-		<h4>Create an account or log in to access your trail journals</h4>
-		
+		<h4>Create a detailed journal entry for each visit you make to a trail.</h4>
+		<p class="front"> You can track where you've gone, when you've gone. Users can keep notes about each visit they make to their favorite spots and denote the conditions, flora, fauna, or whatever they choose.</p>
 		<p>@Html.ActionLink("View Journal Entries", "Index", "VisitEntries", new {@class="btn"})</p>
 	</div>
 </div>
@@ -32,6 +35,7 @@
 	<div class="stuff col-9">
 		<h3 class="index-header">Your Trails</h3>
 		<h4>Create and save information about your favorite hikes in the PNW.</h4>
+		<p class="front">Save data for all of your favorite trails and secret spots. Users can add coordinates, whether the area is open year round, and what the difficulty level is.</p>
 		<p>@Html.ActionLink("View Your Trails", "Index", "UserTrails")</p>
 	</div>
 	<div class="col-3">
