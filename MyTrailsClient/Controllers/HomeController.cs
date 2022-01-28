@@ -21,24 +21,18 @@ namespace MyTrailsClient.Controllers
 			_logger = logger;
 		}
 
-		
-
 		[HttpGet("/")]
 
 		public IActionResult Index()
 		{
 			ViewBag.TrailId = new SelectList(ApiTrail.GetApiTrails(), "TrailId", "Name");
-			// var selectedTrail = SelectedItem.Value;
 			return View();
 		}
 
-		public IActionResult Details(int id, string weatherApiKey, double weatherApiLatitude, double weatherApiLongitude)
+		public ActionResult Details(int id)
 		{ 
-			//ViewBag.ApiTrailId = new SelectList(ApiTrail.GetApiTrails(), "ApiTrailId", "Name");
 			var thisTrail = ApiTrail.GetDetails(id);
-			ViewData["weather"] = Weather.GetDetails(weatherApiKey, weatherApiLatitude, weatherApiLongitude);
 			return View(thisTrail);
-		
 		}
 
 		public IActionResult ExistingTrails()
@@ -46,8 +40,6 @@ namespace MyTrailsClient.Controllers
 			var allTrails = ApiTrail.GetApiTrails();
       return View(allTrails);
 		}
-
-		// "/Trails/Details/@(trail.TrailId)"
 
 		public IActionResult Privacy()
 		{
@@ -58,10 +50,6 @@ namespace MyTrailsClient.Controllers
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-		}
-
-
-
-		
+		}		
 	}
 }
